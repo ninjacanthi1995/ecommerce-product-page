@@ -1,0 +1,175 @@
+$fontSize: 16;
+$orange: hsl(26, 100%, 55%);
+$paleOrange: hsl(25, 100%, 94%);
+
+.heading-1 {
+  font-size: $fontSize * 2.5 + px;
+  margin: 0 0 1rem 0;
+}
+
+.heading-2 {
+  margin: 0;
+}
+
+.heading-3 {
+  font-size: $fontSize + 2px;
+  font-weight: bold;
+  color: hsl(26, 100%, 55%);
+  margin: 0;
+}
+
+.body-text {
+  font-size: $fontSize + px;
+  color: #C1C1C1;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: 'Kumbh Sans', sans-serif;
+  padding: 0 5vw 10vh 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #top-menu {
+    display: flex;
+    height: 12vh;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gray;
+
+    #logo-nav-container {
+      display: flex;
+      gap: 4rem;
+
+      #logo {
+        height: $fontSize + 1px;
+      }
+
+      nav {
+        display: flex;
+        gap: 2 * $fontSize + px;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+
+    #cart-avatar-container {
+      display: flex;
+      height: 100%;
+      gap: 3rem;
+      align-items: center;
+
+      #cart {
+        height: $fontSize + 2px;
+      }
+
+      #avatar {
+        height: 50%;
+      }
+    }
+
+  }
+
+  main {
+    width: 100%;
+    padding: 10vh 10vw 0 10vw;
+    display: flex;
+    justify-content: space-between;
+
+    #product-images {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 3vh;
+
+      #product-img {
+        width: 100%;
+      }
+
+      #thumbnails-container {
+        display: flex;
+        justify-content: space-between;
+
+        .thumbnail {
+          width: 22%;
+        }
+      }
+    }
+
+    #product-detail {
+      width: 40%;
+      padding: 5vh 0 5vh 0;
+      gap: 1rem;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      #price-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        #price-discount {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          #discount {
+            color: $orange;
+            background-color: $paleOrange;
+            padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+          }
+        }
+
+        #old-price {
+          text-decoration: line-through;
+          font-weight: bold;
+        }
+      }
+
+      #buttons-container {
+        display: flex;
+        gap: 1rem;
+
+        #add-remove-item {
+          display: flex;
+          align-items: center;
+          width: 33%;
+          justify-content: space-between;
+          padding: 0 0.5rem 0 0.5rem;
+          background-color: #F7F8FD;
+          border-radius: 0.5rem;
+
+          img {
+            width: 1rem;
+            height: auto;
+          }
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          width: 66%;
+          justify-content: center;
+          border-radius: 0.5rem;
+          border: none;
+          background-color: $orange;
+          color: white;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+}
