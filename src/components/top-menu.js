@@ -1,6 +1,11 @@
 import '../App.scss';
+import {useSelector} from "react-redux";
 
 function TopMenu() {
+    const count = useSelector(state => state.value)
+
+    const countSpan = count > 0 ? <span>{count}</span> : null;
+
     return (
         <div id="top-menu">
             <div id="logo-nav-container">
@@ -16,7 +21,10 @@ function TopMenu() {
             </div>
 
             <div id="cart-avatar-container">
-                <img id="cart" src="./images/icon-cart.svg" alt="cart" />
+                <div id="card-container">
+                    <img id="cart" src="./images/icon-cart.svg" alt="cart" />
+                    {countSpan}
+                </div>
                 <img id="avatar" src="./images/image-avatar.png" alt="avatar" />
             </div>
         </div>

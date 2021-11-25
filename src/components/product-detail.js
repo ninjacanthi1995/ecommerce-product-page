@@ -1,6 +1,10 @@
 import '../App.scss';
+import {useDispatch, useSelector} from "react-redux";
 
 function ProductDetail() {
+    const dispatch = useDispatch()
+    const count = useSelector(state => state.value)
+
     return (
         <div id="product-detail">
             <h3 className="heading-3">SNEAKER COMPANY</h3>
@@ -17,9 +21,9 @@ function ProductDetail() {
 
             <div id="buttons-container">
                 <div id="add-remove-item">
-                    <img src="./images/icon-minus.svg" alt="minus" />
-                    <p>0</p>
-                    <img src="./images/icon-plus.svg" alt="minus" />
+                    <img src="./images/icon-minus.svg" alt="minus" onClick={() => dispatch({type: 'item/decremented'})} />
+                    <p>{count}</p>
+                    <img src="./images/icon-plus.svg" alt="plus" onClick={() => dispatch({type: 'item/incremented'})} />
                 </div>
                 <button>
                     <img src="./images/icon-cart-white.svg" alt="cart" />

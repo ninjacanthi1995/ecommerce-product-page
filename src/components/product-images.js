@@ -5,7 +5,7 @@ function ProductImages() {
     const [imgIdx, setImgIdx] = useState(1);
 
     const thumbnailImgs = [1, 2, 3, 4].map(elem => {
-        return <img className="thumbnail" src={`./images/image-product-${elem}-thumbnail.jpg`} alt={`thumnail-${elem}`} />
+        return <img onClick={() => setImgIdx(elem)} key={elem} className="thumbnail" src={`./images/image-product-${elem}-thumbnail.jpg`} alt={`thumnail-${elem}`} />
     })
 
     return (
