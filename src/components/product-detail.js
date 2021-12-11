@@ -1,9 +1,15 @@
 import '../App.scss';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
+import {useState} from "react";
 
 function ProductDetail() {
     const dispatch = useDispatch()
-    const count = useSelector(state => state.value)
+    const [count, setCount] = useState(0)
+
+    const addToCart = () => {
+        dispatch({type: 'item/incremented', count})
+        setCount(0)
+    }
 
     return (
         <div id="product-detail">
@@ -21,11 +27,11 @@ function ProductDetail() {
 
             <div id="buttons-container">
                 <div id="add-remove-item">
-                    <img src="./images/icon-minus.svg" alt="minus" onClick={() => dispatch({type: 'item/decremented'})} />
+                    <img src="./images/icon-minus.svg" alt="minus" onClick={() => {count > 0 && setCount(count - 1)}} />
                     <p>{count}</p>
-                    <img src="./images/icon-plus.svg" alt="plus" onClick={() => dispatch({type: 'item/incremented'})} />
+                    <img src="./images/icon-plus.svg" alt="plus" onClick={() => setCount(count + 1)} />
                 </div>
-                <button>
+                <button onClick={addToCart}>
                     <img src="./images/icon-cart-white.svg" alt="cart" />
                     Add to cart
                 </button>
