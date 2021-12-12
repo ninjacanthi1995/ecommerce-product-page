@@ -18,9 +18,20 @@ function ProductImages() {
         setIsOpen(false);
     }
 
+    const nextImg = () => {
+        imgIdx < 4 && setImgIdx(imgIdx + 1)
+    }
+
+    const previousImg = () => {
+        imgIdx > 1 && setImgIdx(imgIdx - 1)
+    }
+
     return (
         <div id="product-images">
+            <img src="./images/icon-previous.svg" className="previous-icon" onClick={previousImg}/>
             <img id="product-img" src={`./images/image-product-${imgIdx}.jpg`} alt="product" onClick={openModal} />
+            <img src="./images/icon-next.svg" className="next-icon" onClick={nextImg}/>
+
             <div id="thumbnails-container">
                 {thumbnailImgs}
             </div>
@@ -31,8 +42,13 @@ function ProductImages() {
                 className="Modal"
                 overlayClassName="Overlay"
             >
-                <img src={`./images/image-product-${imgIdx}.jpg`} alt="product" />
-                <div>
+                <img src={"./images/icon-close.svg"} className="close-icon" onClick={closeModal} />
+                <div className="swiper">
+                    <img src={"./images/icon-previous.svg"} className="previous-icon" onClick={previousImg} />
+                    <img src={`./images/image-product-${imgIdx}.jpg`} alt="product" className="product-img" />
+                    <img src={"./images/icon-next.svg"} className="next-icon" onClick={nextImg} />
+                </div>
+                <div className="thumbnails-container">
                     {thumbnailImgs}
                 </div>
             </Modal>

@@ -1,7 +1,8 @@
 import '../App.scss';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 function CartDetail() {
+    const dispatch = useDispatch()
     const count = useSelector(state => state.value)
 
     let detailContainer;
@@ -13,7 +14,7 @@ function CartDetail() {
                     <p>Fall Limited Edition Sneakers</p>
                     <p>$125.00 x <span>{count}</span></p>
                 </div>
-                <img className="delete-icon" alt="delete icon" src={"./images/icon-delete.svg"}/>
+                <img className="delete-icon" alt="delete icon" src={"./images/icon-delete.svg"} onClick={() => dispatch({type: 'item/delete'})}/>
             </div>
             <button>Checkout</button>
         </div>

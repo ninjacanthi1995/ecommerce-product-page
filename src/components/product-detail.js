@@ -22,7 +22,7 @@ function ProductDetail() {
                     <h2 className="heading-2" id="price">$125.00</h2>
                     <p className="body-text" id="discount">50%</p>
                 </div>
-                <p className="body-text" id="old-price">250.00</p>
+                <p className="body-text" id="old-price">$250.00</p>
             </div>
 
             <div id="buttons-container">

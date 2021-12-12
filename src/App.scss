@@ -24,8 +24,14 @@ $paleOrange: hsl(25, 100%, 94%);
   margin: 0;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
 }
 
 .App {
@@ -34,6 +40,7 @@ $paleOrange: hsl(25, 100%, 94%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   #top-menu {
     display: flex;
@@ -46,6 +53,13 @@ $paleOrange: hsl(25, 100%, 94%);
     #logo-nav-container {
       display: flex;
       gap: 4rem;
+      align-items: center;
+
+      .menu-icon {
+        display: none;
+        z-index: 10000;
+        width: 0.8rem;
+      }
 
       #logo {
         height: $fontSize + 1px;
@@ -97,7 +111,7 @@ $paleOrange: hsl(25, 100%, 94%);
 
   main {
     width: 100%;
-    padding: 10vh 10vw 0 10vw;
+    padding: 5rem 4rem 3rem 4rem;
     display: flex;
     justify-content: space-between;
 
@@ -105,7 +119,13 @@ $paleOrange: hsl(25, 100%, 94%);
       width: 45%;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 3vh;
+      justify-content: center;
+
+      .previous-icon, .next-icon {
+        display: none;
+      }
 
       #product-img {
         width: 100%;
@@ -123,8 +143,8 @@ $paleOrange: hsl(25, 100%, 94%);
 
     #product-detail {
       width: 40%;
-      padding: 5vh 0 5vh 0;
       gap: 1rem;
+      padding-top: 1rem;
       justify-content: center;
       display: flex;
       flex-direction: column;
@@ -264,22 +284,51 @@ $paleOrange: hsl(25, 100%, 94%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-inline: 30rem;
+  padding-inline: 34%;
   justify-content: center;
+  gap: 1rem;
 
-  img {
-    width: 100%;
+  .close-icon {
+    align-self: flex-end;
+    width: 1.5rem;
   }
 
-  div {
+  div.swiper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .previous-icon, .next-icon {
+      padding-inline: 18px;
+      padding-block: 15px;
+      background-color: white;
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .previous-icon {
+      margin-right: -24px;
+    }
+
+    .next-icon {
+      margin-left: -24px;
+    }
+
+    .product-img {
+      width: 100%;
+    }
+  }
+
+  div.thumbnails-container {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: center;
+    //grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    padding: 3rem;
+    padding-top: 1rem;
 
-    img {
-
+    .thumbnail {
+      width: 15%;
     }
   }
 }
@@ -291,4 +340,118 @@ $paleOrange: hsl(25, 100%, 94%);
   right: 0;
   bottom: 0;
   background-color: hsla(0, 0, 0, 0.7);
+}
+
+@media (max-width: 992px) {
+  .App {
+    padding-inline: 0;
+
+    #top-menu {
+      border-bottom: none;
+      padding-inline: 1rem;
+      z-index: 100;
+
+      #logo-nav-container {
+        gap: 1rem;
+
+        .menu-icon {
+          display: block;
+        }
+
+        nav {
+          display: none;
+          flex-direction: column;
+          position: fixed;
+          left: 0;
+          top: 0;
+          background-color: white;
+          color: black;
+          width: 70%;
+          height: 100%;
+          padding-top: 6rem;
+          padding-left: 1.5rem;
+        }
+      }
+
+      #cart-avatar-container {
+        gap: 1rem;
+      }
+    }
+
+    main {
+      flex-direction: column;
+      padding: 0;
+
+      #product-images {
+        width: 100%;
+        flex-direction: row;
+
+        .previous-icon, .next-icon {
+          padding-inline: 12px;
+          padding-block: 9px;
+          background-color: white;
+          border-radius: 50%;
+          z-index: 2;
+          display: block;
+        }
+
+        .previous-icon {
+          margin-right: -4.5rem;
+        }
+
+        .next-icon {
+          margin-left: -4.5rem;
+        }
+
+        #product-img {
+          width: 100%;
+          height: 17em;
+          object-fit: cover;
+        }
+
+        #thumbnails-container {
+          display: none;
+        }
+      }
+
+      #product-detail {
+        width: 100%;
+        padding-inline: 2rem;
+
+        #price-container {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        #buttons-container {
+          flex-direction: column;
+          justify-content: center;
+
+          #add-remove-item {
+            width: 100%;
+            padding-inline: 1rem;
+          }
+
+          button {
+            width: 100%;
+            padding-block: 1rem;
+          }
+        }
+      }
+    }
+
+    #cart-detail {
+      right: 1rem;
+      left: 1rem;
+    }
+  }
+
+  .Modal {
+    display: none;
+  }
+
+  .Overlay {
+    display: none;
+  }
 }

@@ -4,6 +4,8 @@ function itemReducer(state = { value: 0 }, action) {
             return { value: state.value + action.count }
         case 'item/decremented':
             return { value: state.value - action.count }
+        case 'item/delete':
+            return  { value: 0 }
         default:
             return state
     }
