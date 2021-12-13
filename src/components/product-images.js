@@ -7,6 +7,9 @@ function ProductImages() {
     const [modalIsOpen, setIsOpen] = useState(false);
 
     const thumbnailImgs = [1, 2, 3, 4].map(elem => {
+        if (elem === imgIdx) {
+            return <img onClick={() => setImgIdx(elem)} key={elem} className="thumbnail active" src={`./images/image-product-${elem}-thumbnail.jpg`} alt={`thumnail-${elem}`} />
+        }
         return <img onClick={() => setImgIdx(elem)} key={elem} className="thumbnail" src={`./images/image-product-${elem}-thumbnail.jpg`} alt={`thumnail-${elem}`} />
     })
 

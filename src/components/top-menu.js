@@ -17,13 +17,15 @@ function TopMenu() {
 
     const toggleMenu = () => {
         let menu = document.getElementById("nav-links");
-        let icon = document.getElementsByClassName("menu-icon")[0]
+        let menuIcon = document.getElementsByClassName("menu-icon")[0]
+        let closeIcon = document.getElementsByClassName("close-icon")[0]
         if (menu.style.display === 'none') {
             menu.style.display = 'flex'
-            icon.src = "./images/icon-close.svg"
+            closeIcon.style.display = 'block'
+            menuIcon.style.display = 'none'
         } else {
             menu.style.display = 'none';
-            icon.src = "./images/icon-menu.svg"
+            menuIcon.style.display = 'block'
         }
     }
 
@@ -34,6 +36,7 @@ function TopMenu() {
                 <img id="logo" src="./images/logo.svg" alt="logo"/>
 
                 <nav id="nav-links">
+                    <img src="./images/icon-close.svg" className="close-icon" onClick={toggleMenu} />
                     <a href="/" className="body-text">Collection</a>
                     <a href="/" className="body-text">Men</a>
                     <a href="/" className="body-text">Women</a>
